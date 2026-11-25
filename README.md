@@ -2,7 +2,7 @@
 
 This is a re-analysis of the finger millet genome–environment association workflow, keeping **one accession per putative country-centroid coordinate**.
 
-In the full panel, 157 of 403 georeferenced accessions sit on three points that match geocoded country names rather than collection sites:
+In the full panel, 157 of 404 georeferenced accessions sit on three points that match geocoded country names rather than collection sites:
 
 | Point | Coordinates | Accessions |
 |---|---|---|
