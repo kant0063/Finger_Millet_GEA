@@ -142,13 +142,3 @@ Other requirements:
   - script 05: Africa/Asia subsets defined by genetic cluster (`subset_col = "Population"`) and the eGWAS hits read from step 04;
   - script 07: training core taken from step 01.
 
-## Troubleshooting
-
-| Problem | Cause and fix |
-|---|---|
-| `could not find function "startLogger"` or `ClassNotFoundException` in 03.5 | rTASSEL was installed or TASSEL downloaded during the same R session. Restart R and run 03.5 again. |
-| `setupTASSEL()` says a TASSEL version is not available | Download problem (internet or Maven Central). Run `rTASSEL::setupTASSEL()` on its own and check `java -version`. |
-| R crashes ("session aborted") in 00.5 | LEA's sNMF crashed. 00.5 now runs sNMF in a separate process; to skip it, run 03 first (00.5 then uses the TESS3 Q matrix) or set `structure = "none"`. The last line of `results/00.5_LD_decay/LD_decay_progress.log` shows where it stopped. |
-| `<model> failed: ... attempt to set an attribute on NULL` in 08 | The geodata server was temporarily unavailable for that climate model. Rerun 08 later. |
-| `object 'is_obsolete' not found` (06) or `unused argument (-env_vars)` (05) | Function masking by another loaded package (reshape2, MASS, raster); fixed in the current scripts by calling `data.table::` and `dplyr::` explicitly. Update to the current scripts. |
-| Candidate-gene windows in 06 are not the 00.5 values | 06 reads a file matching `LD_decay*.csv` under `reference_data/`; with several such files it may pick an older one. Keep only the 00.5 output there (or only the file you want used), and check the "LD windows from" line in the console. |
